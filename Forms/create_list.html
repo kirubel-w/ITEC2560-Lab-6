@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Create addEventListener</title>
+</head>
+
+<body>
+  <p>Please enter some text to add to the list</p>
+  <input type="text" id="text">
+  <button id="save-to-list">Save</button>
+
+  <ul id="list">
+
+    <button id="clear">Clear</button>
+  </ul>
+
+  <script>
+
+    // Get the elements from the page
+    let saveButton = document.querySelector('#save-to-list')
+    let textInput = document.querySelector('#text')
+    let list = document.querySelector('#list')
+    let clearButton = document.querySelector('#clear')
+
+    let elementsInList = 0
+    let maxElements = 10
+
+    // Save the text when Enter is pressed
+    document.addEventListener('keyup', function () {
+      if (event.keyCode == 13) {
+        saveButton.click()
+      }
+    })
+
+    // Add text to the list when Save is clicked
+    saveButton.addEventListener('click', function () {
+      let text = textInput.value
+
+      // Make sure the user entered text
+      if (text.length == 0) {
+        alert('Enter some text')
+        return
+      }
+
+      // Limit the list to 10 items
+      if (elementsInList >= maxElements) {
+        alert('no more elements can be added')
+        return
+      }
+
+      // Create and add a new list item
+      let listItem = document.createElement('li')
+      listItem.innerHTML = text
+      list.appendChild(listItem)
+
+      // Clear the input box
+      textInput.value = ''
+      elementsInList++
+    })
+
+    // Clear all items from the list
+    clearButton.addEventListener('click', function () {
+      list.innerHTML = ''
+      elementsInList = 0
+    })
+
+  </script>
+
+</body>
+
+</html>

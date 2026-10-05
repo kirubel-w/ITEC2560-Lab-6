@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Enter Name and Check Length</title>
+</head>
+
+<body>
+  <p>Please enter your name</p>
+  <input type="text" id="username">
+  <button id="save-user-name">Save</button>
+
+  <p id="welcome-message"></p>
+
+  <script>
+
+    // Find the Save button by its ID
+    let saveButton = document.querySelector('#save-user-name')
+
+    // Find the name input field by its ID
+    let nameInput = document.querySelector('#username')
+
+    // Find the paragraph where the welcome message will appear
+    let welcomeMessage = document.querySelector('#welcome-message')
+
+    // Run the function when the Save button is clicked
+    saveButton.addEventListener('click', function () {
+
+      // Get the name entered in the input field
+      let name = nameInput.value
+
+      // Check if the name has fewer than two characters
+      if (name.length < 2) {
+        welcomeMessage.innerHTML = 'Your name must be at least two letters'
+      } else {
+        // Display a welcome message using the entered name
+        welcomeMessage.innerHTML = `Welcome, ${name}!`
+      }
+
+    })
+
+  </script>
+
+</body>
+
+</html>

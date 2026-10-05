@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Full Time or Part Time?</title>
+</head>
+
+<body>
+
+  <!-- Ask the user how many credits they are taking -->
+  <label for="credit-count">How many credits are you taking this semester?</label>
+  <input type="number" id="credit-count">
+  <button id="submit-credits">Enter</button>
+
+  <!-- show result-->
+  <p id="status-message"></p>
+
+  <script>
+
+    // Find the Enter button
+    let submitButton = document.querySelector('#submit-credits')
+
+    // Find the credit input box
+    let creditsInput = document.querySelector('#credit-count')
+
+    // Find the paragraph where the message will appear
+    let statusMessage = document.querySelector('#status-message')
+
+    // Run the code when the button is clicked
+    submitButton.addEventListener('click', function () {
+
+      // Get the number of credits entered
+      let credits = creditsInput.value
+
+      // Check if the credits are too high
+      if (credits > 24) {
+        statusMessage.innerHTML = 'Error, credits cannot be more than 24'
+      }
+
+      // Check if the student has 12 or more credits
+      else if (credits >= 12) {
+        statusMessage.innerHTML = 'You are enrolled as a full time student'
+
+        // Check if the student has 6 to 11 credits
+      } else if (credits >= 6) {
+        statusMessage.innerHTML = 'You are enrolled as a half time student'
+
+        // Check if the student has between 0 and 5 credits
+      } else if (credits >= 0) {
+        statusMessage.innerHTML = 'You are enrolled less than half time'
+
+        // Show an error if the number is negative
+      } else {
+        statusMessage.innerHTML = 'Error, enter zero or a positive number'
+      }
+    })
+
+  </script>
+
+</body>
+
+</html>

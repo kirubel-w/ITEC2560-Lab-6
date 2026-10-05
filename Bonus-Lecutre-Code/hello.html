@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <h1 id="header">D2L Class Management System</h1>
+
+    <!--Make content visible or invisible to students -->
+
+    <label for="visible">Is content visible?</label>
+    <input id="visible" type="checkbox" checked>
+
+    <div id="content">
+        <h2>Content</h2>
+        <p>This is your assignment for this week.</p>
+    </div>
+
+    <script>
+        // 1. find the element on the page that the user will interact with
+        let headerElement = document.querySelector('#header')
+
+        //2. "lsiten" for the type of event you need to respond to
+        headerElement.addEventListener('click', function () {
+            alert('Hello')
+        })
+        let visibleCheckboxElement = document.querySelector('#visible')
+        let contentElement = document.querySelector('#content')
+
+        visibleCheckboxElement.addEventListener('change', function () {
+            //make content visible if checkbox is checked
+            //hide content if checkbox is not checked
+            if (visibleCheckboxElement.checked) {
+                contentElement.style.visibility = 'visible'
+            } else
+                contentElement.style.visibility = 'hidden'
+        })
+
+    </script>
+
+</body>
+
+</html>

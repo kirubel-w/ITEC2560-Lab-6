@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>mouseover and mouseout events</title>
+</head>
+
+<body>
+
+    <p id="mouse-me">Move the mouse over this message</p>
+
+    <script>
+
+        // Find the paragraph
+        let message = document.querySelector('#mouse-me')
+
+        let countMouse = 0  // Count how many times the mouse goes over it
+
+        // Change the message when the mouse goes over it
+        message.addEventListener('mouseover', function () {
+            countMouse = countMouse + 1
+            if (countMouse == 1) {
+                message.innerHTML = 'Mouse has been here ' + countMouse + ' time'
+            } else {
+                message.innerHTML = 'Your mouse has been on this message ' + countMouse + ' times.'
+            }
+
+        })
+
+        // Change the message when the mouse leaves
+        message.addEventListener('mouseout', function () {
+            message.innerHTML = 'Your mouse is NOT on this message'
+        })
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Quiz</title>
+</head>
+
+<body>
+
+  <p>What is the capital of Wisconsin?</p>
+
+  <button class="wrong-answer">Bayfield</button>
+  <button id="correct-answer">Madison</button>
+  <button class="wrong-answer">Milwaukee</button>
+
+  <p id="result"></p>
+
+  <script>
+
+    // Find the correct answer button
+    let correctAnswerButton = document.querySelector('#correct-answer')
+
+    // Save the button's original background
+    let defaultButtonBackground = correctAnswerButton.style.background
+
+    // Find the result paragraph to show the answer message
+    let result = document.querySelector('#result')
+
+    // Find all the buttons that have the wrong answers
+    let wrongAnswerButtons = document.querySelectorAll('.wrong-answer')
+
+    for (let x = 0; x < wrongAnswerButtons.length; x++) {
+      let wrongAnswerButton = wrongAnswerButtons[x]
+      wrongAnswerButton.addEventListener('click', function () {
+        result.innerHTML = 'Wrong answer, try again?'
+        correctAnswerButton.style.background = defaultButtonBackground
+      })
+    }
+
+    correctAnswerButton.addEventListener('click', function () {
+      result.innerHTML = 'Correct answer!'
+      correctAnswerButton.style.background = 'cyan'
+    })
+
+  </script>
+
+</body>
+
+</html>
