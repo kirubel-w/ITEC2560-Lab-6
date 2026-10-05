@@ -60,14 +60,14 @@
 
       // Get the student's name
       let name = nameInput.value
-      if (name.value == '') {
+      if (name == '') {
         alert('Please enter a student name')
         return
       }
 
       // Get the student's ID
       let id = idInput.value
-      if (id.value == '') {
+      if (id == '') {
         alert('Please enter a student ID')
         return
       }
@@ -83,7 +83,7 @@
       let listItem = document.createElement('li')
 
       // Add the student's information
-      listItem.innerHTML = `${name}, id: ${id}, GPA ${gpa}`
+      listItem.innerHTML = `Name:${name}, id: ${id}, GPA: ${gpa}`
 
       // Add the student to the list
       studentList.appendChild(listItem)
@@ -98,7 +98,6 @@
     })
 
 
-  
 
   </script>
 
